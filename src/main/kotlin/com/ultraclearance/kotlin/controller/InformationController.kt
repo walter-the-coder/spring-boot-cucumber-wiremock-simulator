@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/message")
-class MessageController {
+@RequestMapping("/api/information")
+class InformationController {
 
-    @PostMapping("/send")
-    fun sendMessage(@RequestBody message: String): String {
-        return "message was sent!"
+    @PostMapping("/store")
+    fun storeInformation(@RequestBody information: InformationDto): String {
+        return "information was stored!"
     }
 }
