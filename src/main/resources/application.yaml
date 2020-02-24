@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: local
+  banner:
+    location: classpath:banner.txt
+
+# Default server port
+server:
+  port: 8080
+
+external:
+  informationProcessor:
+    url: ${INFORMATION_PROCESSOR_URL}

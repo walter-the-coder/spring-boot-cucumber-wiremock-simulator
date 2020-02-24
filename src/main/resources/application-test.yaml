@@ -1,0 +1,8 @@
+# Configuration for testing
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+external:
+  informationProcessor:
+    url: "http//localhost:9999/whatever"
