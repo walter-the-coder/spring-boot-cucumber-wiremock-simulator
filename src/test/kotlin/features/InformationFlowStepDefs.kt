@@ -2,13 +2,16 @@ package features
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ultraclearance.kotlin.controller.InformationDto
+import com.ultraclearance.kotlin.controller.ResponseDto
+import com.ultraclearance.kotlin.utils.getValidResponse
+import com.ultraclearance.kotlin.utils.bodyTo
 import io.cucumber.datatable.DataTable
 import io.cucumber.java8.En
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
+import org.springframework.web.reactive.function.client.ClientResponse
 import org.springframework.web.reactive.function.client.WebClient
-import java.lang.NullPointerException
 
 class InformationFlowStepDefs : En {
 
@@ -17,7 +20,7 @@ class InformationFlowStepDefs : En {
 
     private lateinit var information: InformationDto
 
-    private lateinit var response: String
+    private lateinit var response: ClientResponse
 
     private val client = WebClient.builder()
             .baseUrl("http://localhost:8080/api/information")
@@ -36,13 +39,25 @@ class InformationFlowStepDefs : En {
         When("we test the applications API by posting the information") {
             response = client.post().uri("/test")
                     .bodyValue(objectMapper.writeValueAsString(information))
-                    .exchange()
-                    .flatMap { it.bodyToMono(String::class.java) }
-                    .block() ?: throw NullPointerException("We did not get a valid response from the application!")
+                    .getValidResponse()
+        }
+
+        When("we post the information to the application") {
+            response = client.post().uri("/submit")
+                    .bodyValue(objectMapper.writeValueAsString(information))
+                    .getValidResponse()
         }
 
         Then("we should receive a response with the text {string}") { responseText: String ->
-            assert(response == responseText)
+            assert(response.bodyTo(String::class.java) == responseText)
+        }
+
+        Then("we should receive a response informing us that the information processed with status {string}") {
+            expectedStatus: String ->
+
+            assert(response.statusCode().is2xxSuccessful)
+            val responseDto = response.bodyTo(ResponseDto::class.java)
+            assert(responseDto.message  == "Information processed with status=$expectedStatus")
         }
     }
 }

@@ -5,4 +5,4 @@ spring:
 
 external:
   informationProcessor:
-    url: "http//localhost:9999/whatever"
+    url: "http://localhost:9001"

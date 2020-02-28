@@ -1,13 +1,14 @@
 package com.ultraclearance.kotlin.external.clients
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.ultraclearance.kotlin.utils.bodyTo
 import com.ultraclearance.kotlin.controller.InformationDto
+import com.ultraclearance.kotlin.utils.getValidResponse
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
-import java.lang.NullPointerException
 
 @Component
 class InformationProcessorClient(
@@ -15,7 +16,6 @@ class InformationProcessorClient(
         private val baseUrl: String,
         private val objectMapper: ObjectMapper
 ) {
-
     private val client = WebClient.builder()
             .baseUrl(baseUrl)
             .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
@@ -24,9 +24,7 @@ class InformationProcessorClient(
     fun processInformation(informationDto: InformationDto): ProcessingResult {
         return client.post().uri("/whatever")
                 .bodyValue(objectMapper.writeValueAsString(informationDto))
-                .exchange()
-                .block()
-                ?.bodyToMono(ProcessingResult::class.java)
-                ?.block() ?: throw NullPointerException("Failed to get result from the information processor!")
+                .getValidResponse()
+                .bodyTo(ProcessingResult::class.java)
     }
 }

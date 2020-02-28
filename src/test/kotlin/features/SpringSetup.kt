@@ -1,6 +1,7 @@
 package features
 
 import com.ultraclearance.kotlin.Application
+import features.simulators.InformationProcessorSimulator
 import io.cucumber.java8.En
 import mu.KotlinLogging
 import org.springframework.boot.test.context.SpringBootTest
@@ -15,6 +16,14 @@ private val LOGGER = KotlinLogging.logger {}
 )
 class SpringSetup : En {
     init {
+        Before { _ ->
+            InformationProcessorSimulator.start()
+        }
+
+        After { _ ->
+            InformationProcessorSimulator.stop()
+        }
+
         LOGGER.info("Application started")
     }
 }

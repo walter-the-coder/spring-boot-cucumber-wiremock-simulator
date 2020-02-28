@@ -1,8 +1,14 @@
 #lang: en
-Feature: Black-box test with Wiremock Simulator
+Feature: Black-box test of our application where external components are simulated with WireMock
 
-  Scenario: The information controller should answer our calls
+  Scenario: Processing of information through application and external services - Information processed with status OK
     Given some information
-      | details | whatever |
-    When we test the applications API by posting the information
-    Then we should receive a response with the text "information was received!"
+      | details | this information should be processed externally and end up with status OK |
+    When we post the information to the application
+    Then we should receive a response informing us that the information processed with status "OK"
+
+  Scenario: Processing of information through application and external services - Information processed with status FAULTY
+    Given some information
+      | details | this information should be processed externally and end up with status FAULTY |
+    When we post the information to the application
+    Then we should receive a response informing us that the information processed with status "FAULTY"
