@@ -10,4 +10,4 @@ server:
 
 external:
   informationProcessor:
-    url: ${INFORMATION_PROCESSOR_URL}
+    url: ${"dummyValue":INFORMATION_PROCESSOR_URL}
