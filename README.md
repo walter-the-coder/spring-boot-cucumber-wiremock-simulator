@@ -1,6 +1,6 @@
 # Spring Boot Kotlin Guide - Writing Cucumber black-box tests
 I hope this project will be helpful to you as an example on how to run black-box tests as part of your build.
-This was of doing things has been very useful to me on one of the project I've been working on in order to reduce the need for manually testing and manually initiated tests.
+This was of doing things has been very useful on two of the project I've been working on in order to reduce the need for manually testing and manually initiated tests.
 
 # Editor
 - Kotlin is a programming language developed by JetBrains. You should use IntelliJ for Kotlin: https://www.jetbrains.com/idea/
