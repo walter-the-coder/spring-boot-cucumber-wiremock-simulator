@@ -8,7 +8,7 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ultraclearance</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>spring-boot-cucumber-black-box</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-cucumber-black-box</name>
@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<kotlin.version>1.3.61</kotlin.version>
+		<kotlin.version>1.6.21</kotlin.version>
 		<kotlin-logging.version>1.7.8</kotlin-logging.version>
 
 		<!-- Test dependencies -->

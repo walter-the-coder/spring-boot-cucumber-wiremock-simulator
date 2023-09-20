@@ -1,8 +1,8 @@
-package com.ultraclearance.kotlin.controller
+package com.example.kotlin.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.ultraclearance.kotlin.external.clients.InformationProcessorClient
-import com.ultraclearance.kotlin.external.clients.ProcessingResult
+import com.example.kotlin.external.clients.InformationProcessorClient
+import com.example.kotlin.external.clients.ProcessingResult
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test

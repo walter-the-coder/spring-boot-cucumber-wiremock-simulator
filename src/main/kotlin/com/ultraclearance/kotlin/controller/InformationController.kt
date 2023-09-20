@@ -1,6 +1,6 @@
-package com.ultraclearance.kotlin.controller
+package com.example.kotlin.controller
 
-import com.ultraclearance.kotlin.service.InformationService
+import com.example.kotlin.service.InformationService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping

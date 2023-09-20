@@ -3,8 +3,8 @@ package features.simulators
 import com.github.tomakehurst.wiremock.client.ResponseDefinitionBuilder
 import com.github.tomakehurst.wiremock.http.Request
 import com.github.tomakehurst.wiremock.http.ResponseDefinition
-import com.ultraclearance.kotlin.controller.InformationDto
-import com.ultraclearance.kotlin.external.clients.ProcessingResult
+import com.example.kotlin.controller.InformationDto
+import com.example.kotlin.external.clients.ProcessingResult
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType

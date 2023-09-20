@@ -1,9 +1,9 @@
-package com.ultraclearance.kotlin.external.clients
+package com.example.kotlin.external.clients
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.ultraclearance.kotlin.utils.bodyTo
-import com.ultraclearance.kotlin.controller.InformationDto
-import com.ultraclearance.kotlin.utils.getValidResponse
+import com.example.kotlin.utils.bodyTo
+import com.example.kotlin.controller.InformationDto
+import com.example.kotlin.utils.getValidResponse
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType

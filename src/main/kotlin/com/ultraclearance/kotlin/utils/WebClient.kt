@@ -1,4 +1,4 @@
-package com.ultraclearance.kotlin.utils
+package com.example.kotlin.utils
 
 import org.springframework.web.reactive.function.client.ClientResponse
 import org.springframework.web.reactive.function.client.WebClient

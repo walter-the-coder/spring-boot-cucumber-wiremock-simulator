@@ -1,8 +1,8 @@
-package com.ultraclearance.kotlin.service
+package com.example.kotlin.service
 
-import com.ultraclearance.kotlin.controller.InformationDto
-import com.ultraclearance.kotlin.controller.ResponseDto
-import com.ultraclearance.kotlin.external.clients.InformationProcessorClient
+import com.example.kotlin.controller.InformationDto
+import com.example.kotlin.controller.ResponseDto
+import com.example.kotlin.external.clients.InformationProcessorClient
 import org.springframework.stereotype.Service
 
 @Service

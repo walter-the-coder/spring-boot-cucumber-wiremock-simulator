@@ -1,6 +1,6 @@
 package features
 
-import com.ultraclearance.kotlin.Application
+import com.example.kotlin.Application
 import features.simulators.InformationProcessorSimulator
 import io.cucumber.java8.En
 import mu.KotlinLogging
@@ -12,7 +12,7 @@ private val LOGGER = KotlinLogging.logger {}
 @ActiveProfiles("test")
 @SpringBootTest(
         classes = [Application::class],
-        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 class SpringSetup : En {
     init {
